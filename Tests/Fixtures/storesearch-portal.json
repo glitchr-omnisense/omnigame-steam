@@ -1,0 +1,61 @@
+{
+  "total": 10,
+  "items": [
+    {
+      "type": "app",
+      "name": "Portal 2",
+      "id": 620,
+      "price": {
+        "currency": "EUR",
+        "initial": 969,
+        "final": 969
+      },
+      "tiny_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/620/bd23943dcd0280aa2cdc066e2f86d2185cfd4cce/capsule_231x87.jpg?t=1790187113",
+      "metascore": "95",
+      "platforms": {
+        "windows": true,
+        "mac": false,
+        "linux": true
+      },
+      "streamingvideo": false,
+      "controller_support": "full"
+    },
+    {
+      "type": "app",
+      "name": "Portal",
+      "id": 400,
+      "price": {
+        "currency": "EUR",
+        "initial": 969,
+        "final": 969
+      },
+      "tiny_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/400/capsule_231x87.jpg?t=1745368554",
+      "metascore": "90",
+      "platforms": {
+        "windows": true,
+        "mac": false,
+        "linux": true
+      },
+      "streamingvideo": false,
+      "controller_support": "full"
+    },
+    {
+      "type": "app",
+      "name": "Portal Knights",
+      "id": 374040,
+      "price": {
+        "currency": "EUR",
+        "initial": 1999,
+        "final": 1999
+      },
+      "tiny_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/374040/capsule_231x87_french.jpg?t=1696604379",
+      "metascore": "72",
+      "platforms": {
+        "windows": true,
+        "mac": false,
+        "linux": false
+      },
+      "streamingvideo": false
+    }
+  ]
+}
