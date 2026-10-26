@@ -19,7 +19,7 @@ final class LiveTest extends TestCase
 {
     public function testTheStore(): void
     {
-        $provider = (new SteamFactory(HttpClient::create(['timeout' => 30])))->create(['user_agent' => 'omnigame-tests/1.0 (+https://github.com/glitchr-studio/omnigame)']);
+        $provider = (new SteamFactory(HttpClient::create(['timeout' => 30])))->create(['user_agent' => 'omnigame-tests/1.0 (+https://github.com/glitchr-omnisense/omnigame)']);
         self::assertInstanceOf(SteamProvider::class, $provider);
 
         $game = $provider->game(GameRef::steam(620), 'en', 'US');

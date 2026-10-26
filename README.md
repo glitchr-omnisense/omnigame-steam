@@ -1,6 +1,6 @@
 # omnigame/steam
 
-[omniscient/omnigame](https://github.com/glitchr-studio/omnigame)'s Steam, under any PHP host:
+[omnisense/omnigame](https://github.com/glitchr-omnisense/omnigame)'s Steam, under any PHP host:
 
 - **an app's store record** (`store.steampowered.com/api/appdetails`, no key): name, short
   description, release date (read in the store's languages: "18 Apr, 2011", "18 avr. 2011"),

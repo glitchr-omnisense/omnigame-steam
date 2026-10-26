@@ -29,7 +29,7 @@ final class SteamFactory extends ProviderFactory
             'key' => null,
             'language' => 'english',
             'country' => 'US',
-            'user_agent' => 'omnigame/1.0 (+https://github.com/glitchr-studio/omnigame)',
+            'user_agent' => 'omnigame/1.0 (+https://github.com/glitchr-omnisense/omnigame)',
             'store' => 'https://store.steampowered.com',
             'api' => 'https://api.steampowered.com',
         ]);
