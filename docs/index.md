@@ -144,10 +144,10 @@ services:
   `UnreachableException`;
 - no `key` for a library, a player that is not 17 digits: `InvalidConfigException`.
 
-> [!WARNING]
-> Known defect: a network error on the Web API quotes the URL, the key included (`... for
-> "https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=SECRET-KEY&..."`, seen in a
-> container with no network, 2026-10-27). Keep these messages out of pages and shared logs.
+The Web API's key travels in the query string, as Steam takes it; a network error's message names
+the method and the path only, with the HTTP client's reason without the URL (`Steam could not be
+reached for GET /IPlayerService/GetOwnedGames/v1/: Could not resolve host: api.steampowered.com.`,
+the core's `JsonClient`). The exception's previous, the HTTP client's, still quotes the URL.
 
 ## Verified, and not
 
