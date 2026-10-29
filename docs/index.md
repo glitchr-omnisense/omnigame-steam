@@ -50,11 +50,9 @@ Requires PHP 8.2, `omnisense/omnigame` (1.x) and `symfony/http-client` (6.4, 7 o
 
 `attribution`: `Data from Steam; Valve, Steam and their logos are trademarks of Valve Corporation`.
 
-> [!WARNING]
-> Known defect: without `key`, `capabilities()` says no library and no ownership, but the provider
-> still implements both: `Registry::library('steam')` returns it and `library()` throws
-> `InvalidConfigException` (seen in the harness, 2026-10-27), where the registry is expected to
-> refuse it.
+Without `key`, `capabilities()` says no library and no ownership, and the registry refuses them:
+`Registry::library('steam')` and `::ownership('steam')` are a `NotSupportedException` (the core's
+`Registry`); the provider's own `library()` called directly is an `InvalidConfigException`.
 
 ## Behaviour
 
@@ -153,7 +151,8 @@ the core's `JsonClient`). The exception's previous, the HTTP client's, still quo
 
 Tested offline (`Tests/SteamProviderTest.php`, in the core's harness, PHP 8.4): Portal 2's record
 in French with its French price, an unknown app, a search - answers recorded on 2026-10-24 -, the
-library and ownership on an answer shaped after the Web API's documentation. `Tests/BareTest.php`
+library and ownership on an answer shaped after the Web API's documentation, the registry refusing
+them without a key. `Tests/BareTest.php`
 loads every class with the package's requirements alone.
 
 Verified live (`Tests/LiveTest.php`, no key, 2026-10-24): Portal 2's record in English with its US

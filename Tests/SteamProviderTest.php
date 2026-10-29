@@ -81,6 +81,23 @@ final class SteamProviderTest extends TestCase
         self::provider(self::http(), ['key' => 'x'])->library('gaben');
     }
 
+    /** The registry offers a library and ownership only when the provider can give them: Steam without a key cannot. */
+    public function testTheRegistryOffersNoLibraryWithoutAKey(): void
+    {
+        $registry = new \Omnigame\Registry([new SteamFactory(self::http())], ['steam' => ['factory' => 'steam'], 'keyed' => ['factory' => 'steam', 'options' => ['key' => 'x']]]);
+
+        self::assertInstanceOf(\Omnigame\LibraryInterface::class, $registry->library('keyed'));
+        self::assertInstanceOf(\Omnigame\OwnershipInterface::class, $registry->ownership('keyed'));
+        foreach (['library' => fn () => $registry->library('steam'), 'ownership' => fn () => $registry->ownership('steam')] as $what => $ask) {
+            try {
+                $ask();
+                self::fail($what.' offered without a key');
+            } catch (\Omnigame\Exception\NotSupportedException $e) {
+                self::assertStringContainsString('"steam"', $e->getMessage());
+            }
+        }
+    }
+
     public function testOnlyAppIdsAreKnown(): void
     {
         $this->expectException(NotSupportedException::class);
